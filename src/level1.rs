@@ -17,12 +17,6 @@ fn spawn_level1(mut commands: Commands, mut materials: ResMut<Assets<StandardMat
         Transform::from_xyz(-2.5, 4.5, 9.0).looking_at(Vec3::ZERO, Vec3::Y),
     ));
 
-    commands.spawn((
-        Mesh3d(meshes.add(Cuboid::new(1.0, 1.0, 1.0))),
-        MeshMaterial3d(materials.add(Color::srgb_u8(124, 144, 255))),
-        Transform::from_xyz(0.0, 0.5, 0.0),
-    ));
-
     let floor = Mesh3d(meshes.add(Plane3d {normal: Dir3::from_xyz(0.,1.,0.).unwrap(), half_size: Vec2::new(100.,100.)}));
     let floorMat = MeshMaterial3d(materials.add(StandardMaterial {
         base_color: Color::srgb(1., 0., 0.),
